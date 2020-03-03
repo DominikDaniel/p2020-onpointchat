@@ -1,3 +1,18 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+ion-toolbar ion-title{
+  margin: auto;
+  display: table;
+  font-size: 1.75rem;
+}
+
+.messageInput{
+  position: fixed;
+  bottom: 5px;
+  display: inline-flex;
+}
+.messageInput ion-input{
+  width:  100%;
+}
