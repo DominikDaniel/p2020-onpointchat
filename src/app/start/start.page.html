@@ -1,11 +1,13 @@
 <ion-content>
-  <ion-header class="ion-no-border">
-    <ion-toolbar>
-      <ion-title>OnPointChat</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <div class="nicknameInput">
-    <ion-input placeholder="Nickname"></ion-input>
-    <ion-button>ok</ion-button>
+  <div>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-title>OnPointChat</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <div class="nicknameInput">
+      <ion-input [(ngModel)]="nickname" placeholder="Nickname"></ion-input>
+      <ion-button (click)="testN()">ok</ion-button>
+    </div>
   </div>
 </ion-content>

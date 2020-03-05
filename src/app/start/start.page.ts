@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class StartPage {
 
   constructor() {}
-
+  nickname = "";
+  testN() {
+    console.log(this.nickname);
+  }
 }
 

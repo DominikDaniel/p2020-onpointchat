@@ -1,10 +1,14 @@
 ion-content{
     --ion-background-color: #0055CC;
 }
+div{
+    margin-top: 50%;
+}
 ion-title{
     color: white;
     font-family: sans-serif;
     font-size: 3rem;
+    text-align: center;
 }
 .nicknameInput{
     margin-top: 40px;
@@ -15,4 +19,11 @@ ion-input{
     border-radius: 10px;
     margin: auto;
     font-size: 2rem;
-}  
+}
+ion-button{
+    font-size: 15px;
+    height: 40px;
+    width: 70px;
+    float: right;
+    margin: 10px 30px 0 0;
+}
