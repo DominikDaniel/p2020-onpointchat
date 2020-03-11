@@ -7,8 +7,20 @@
 </ion-header>
 
 <ion-content>
+  <div *ngFor="let message of messages">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-subtitle>User: {{message.user_id}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{message.message}}
+        </ion-card-content>
+      </ion-card-content>
+    </ion-card>
+  </div>
   <div class="messageInput">
-    <ion-input placeholder="Enter message"></ion-input>
-    <ion-button>Send</ion-button>
+    <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message"></ion-input>
+    <ion-button (click)="sendMessage()">Send</ion-button>
   </div>
 </ion-content>

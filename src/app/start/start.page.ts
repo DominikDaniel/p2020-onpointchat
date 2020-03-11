@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { UserService } from "../services/user.service";
+import { MessagesService } from "../services/messages.service";
+import { error } from 'util';
+
 
 @Component({
   selector: 'app-start',
@@ -7,10 +13,27 @@ import { Component } from '@angular/core';
 })
 export class StartPage {
 
-  constructor() {}
+  constructor(private navController: NavController, 
+    private router: Router,
+    private userService: UserService,
+    private messagesService: MessagesService) {}
+
   nickname = "";
-  testN() {
-    console.log(this.nickname);
-  }
+
+  login()
+    {
+      var temp = this.nickname.replace(/\s/g, "");
+      if(temp == "")
+      {
+        console.error();
+      }
+      else if(temp !== "")
+      {
+        this.userService.create(this.nickname).subscribe(userId =>{
+          this.userService.setUserId(userId);
+          this.navController.navigateRoot('/tabs/tabs/tab2');
+        });
+      }
+    }
 }
 

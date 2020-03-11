@@ -1,5 +1,5 @@
 ion-content ion-toolbar {
-  --background: translucent;
+
 }
 
 ion-toolbar ion-title{
@@ -12,7 +12,5 @@ ion-toolbar ion-title{
   position: fixed;
   bottom: 5px;
   display: inline-flex;
-}
-.messageInput ion-input{
-  width:  100%;
+  width: 95%;
 }
