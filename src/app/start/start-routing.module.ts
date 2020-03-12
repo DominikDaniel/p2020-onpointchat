@@ -5,7 +5,7 @@ import { StartPage } from './start.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'start',
     component: StartPage
   }
 ];
