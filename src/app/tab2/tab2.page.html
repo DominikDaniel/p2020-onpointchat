@@ -1,5 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>
       OnPointChat
     </ion-title>
@@ -8,7 +8,7 @@
 
 <ion-content>
   <div *ngFor="let message of messages">
-    <ion-card>
+    <ion-card class="message">
       <ion-card-content>
         <ion-card-header>
           <ion-card-subtitle>User: {{message.user_id}}</ion-card-subtitle>

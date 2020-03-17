@@ -31,7 +31,7 @@ export class StartPage {
       {
         this.userService.create(this.nickname).subscribe(userId =>{
           this.userService.setUserId(userId);
-          this.navController.navigateRoot('/tabs/tabs/tab2');
+          this.navController.navigateRoot('/tabs/tab2');
         });
       }
     }
