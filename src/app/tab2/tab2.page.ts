@@ -27,7 +27,7 @@ export class Tab2Page {
   {
     this.userService.getUserList().subscribe(users => {
       this.users = users as any;
-      console.log(this.users[2].id);
+      console.log(this.users);
     });
     this.messagesService.loadMessages().subscribe(messages => {
       this.messages = messages as any;
