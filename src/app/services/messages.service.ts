@@ -9,8 +9,8 @@ export class MessagesService {
 
   constructor(private http: HttpClient) { }
 
-  loadMessages(){
-    return this.http.get("http://localhost:8000/messages");
+  loadMessages(group_id){
+    return this.http.get(`http://localhost:8000/messages/${group_id}`);
   }
 
   sendMessage(message)

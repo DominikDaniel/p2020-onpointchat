@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UserService } from "../services/user.service";
 import { MessagesService } from "../services/messages.service";
+import { ActivatedRoute, Router } from '@angular/router';
+import { GroupsService } from '../services/groups.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +10,7 @@ import { MessagesService } from "../services/messages.service";
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  group_id;
   messages = [];
   users = [];
   newMessage = {
@@ -18,19 +20,25 @@ export class Tab2Page {
   };
 
   constructor(private userService: UserService,
-    private messagesService: MessagesService) {}
-
+    private messagesService: MessagesService,private groupsService: GroupsService) {}
+    
   ngOnInit() {
     this.loadMessages();
-  }  
-  loadMessages()
-  {
+  }
+
+  ionViewWillEnter(){
+    this.loadMessages();
+  }
+  loadMessages(){ 
+    this.group_id = this.groupsService.getGroupId();
     this.userService.getUserList().subscribe(users => {
       this.users = users as any;
-      console.log(this.users);
+      //console.log(this.users);
     });
-    this.messagesService.loadMessages().subscribe(messages => {
+    console.log(this.group_id);
+    this.messagesService.loadMessages(this.group_id).subscribe(messages => {
       this.messages = messages as any;
+      //console.log(messages);
       for(let i = 0; i<this.messages.length;i++)
       {
         for(let j = 0; j<this.users.length;j++)
@@ -47,7 +55,7 @@ export class Tab2Page {
   sendMessage()
   {
     this.newMessage.user_id = this.userService.getUserId();
-    this.newMessage.group_id = "1";
+    this.newMessage.group_id = this.group_id;
     this.messagesService.sendMessage(this.newMessage).subscribe(()=>{
       this.loadMessages();
     });
