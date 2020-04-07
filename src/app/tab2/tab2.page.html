@@ -7,17 +7,25 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let message of messages">
-    <ion-card class="message">
-      <ion-card-content>
-        <ion-card-header>
-          <ion-card-subtitle>User: {{message.user_id}}</ion-card-subtitle>
-        </ion-card-header>
+  <div class="topBar">
+    <div (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+      <p>Back</p>
+    </div>
+  </div>
+  <div class="messageSpace">
+    <div *ngFor="let message of messages">
+      <ion-card class="message">
         <ion-card-content>
-          {{message.message}}
+          <ion-card-header>
+            <ion-card-subtitle>User: {{message.user_id}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{message.message}}
+          </ion-card-content>
         </ion-card-content>
-      </ion-card-content>
-    </ion-card>
+      </ion-card>
+    </div>
   </div>
   <div class="messageInput">
     <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message"></ion-input>

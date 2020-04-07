@@ -3,9 +3,22 @@ ion-toolbar ion-title{
   display: table;
   font-size: 1.75rem;
 }
+.topBar{
+  display: inline-flex;
+  color:#0055CC;
+}
+.topBar div{
+  display: inline-flex;
+}
+.topBar ion-icon{
+  margin: auto;
+}
+.messageSpace{
+  margin-bottom: 55px;
+}
 .message{
   background-color: #E5E5EA;
-  width: 65%;
+  width:fit-content;
   height: auto;
   border-radius: 12px;
 }

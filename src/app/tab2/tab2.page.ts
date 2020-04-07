@@ -3,6 +3,7 @@ import { UserService } from "../services/user.service";
 import { MessagesService } from "../services/messages.service";
 import { ActivatedRoute, Router } from '@angular/router';
 import { GroupsService } from '../services/groups.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -18,13 +19,8 @@ export class Tab2Page {
     group_id: "",
     message: ""
   };
-
-  constructor(private userService: UserService,
+  constructor(private navController: NavController,private userService: UserService,
     private messagesService: MessagesService,private groupsService: GroupsService) {}
-    
-  ngOnInit() {
-    this.loadMessages();
-  }
 
   ionViewWillEnter(){
     this.loadMessages();
@@ -33,12 +29,9 @@ export class Tab2Page {
     this.group_id = this.groupsService.getGroupId();
     this.userService.getUserList().subscribe(users => {
       this.users = users as any;
-      //console.log(this.users);
     });
-    console.log(this.group_id);
     this.messagesService.loadMessages(this.group_id).subscribe(messages => {
       this.messages = messages as any;
-      //console.log(messages);
       for(let i = 0; i<this.messages.length;i++)
       {
         for(let j = 0; j<this.users.length;j++)
@@ -66,4 +59,7 @@ export class Tab2Page {
     };
   }
 
+  goBack(){
+    this.navController.navigateRoot('/tabs/tab1');
+  }
 }
