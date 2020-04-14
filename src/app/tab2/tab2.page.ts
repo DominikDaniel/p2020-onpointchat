@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UserService } from "../services/user.service";
 import { MessagesService } from "../services/messages.service";
 import { ActivatedRoute, Router } from '@angular/router';
@@ -77,5 +77,10 @@ export class Tab2Page {
 
   goBack(){
     this.navController.navigateRoot('/tabs/tab1');
+  }
+
+  doRefresh(event){
+    this.loadMessages();
+    event.target.complete();
   }
 }
