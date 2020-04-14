@@ -1,18 +1,19 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar color="primary">
     <ion-title>
       OnPointChat
     </ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
   <div class="topBar">
     <div (click)="goBack()">
       <ion-icon name="arrow-back"></ion-icon>
       <p>Back</p>
     </div>
+    <ion-title class="ion-text-center">{{group_name}}</ion-title>
   </div>
+</ion-header>
+
+<ion-content>
   <div class="messageSpace">
     <div *ngFor="let message of messages">
       <ion-card class="message">

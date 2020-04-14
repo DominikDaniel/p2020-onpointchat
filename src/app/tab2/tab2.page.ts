@@ -11,7 +11,9 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  groups = [];
   group_id;
+  group_name;
   messages = [];
   users = [];
   newMessage = {
@@ -27,11 +29,13 @@ export class Tab2Page {
   }
   loadMessages(){ 
     this.group_id = this.groupsService.getGroupId();
+    this.getGroupName()
     this.userService.getUserList().subscribe(users => {
       this.users = users as any;
     });
     this.messagesService.loadMessages(this.group_id).subscribe(messages => {
       this.messages = messages as any;
+      //console.log(messages)
       for(let i = 0; i<this.messages.length;i++)
       {
         for(let j = 0; j<this.users.length;j++)
@@ -42,6 +46,18 @@ export class Tab2Page {
           }
         }
       }
+    });
+  }
+
+  getGroupName(){
+    this.groupsService.loadGroups().subscribe(groups => {
+      this.groups = groups as any;
+      //console.log(this.groups);
+          for (let i = 0; i < this.groups.length; i++) {
+      if( this.group_id == this.groups[i].id){
+        this.group_name = this.groups[i].name;
+      }
+    }
     });
   }
 
