@@ -28,4 +28,5 @@ export class Tab1Page {
     this.GroupsService.setGroupId(group_id);
     this.navController.navigateRoot('/tabs/tab2');
   }
+
 }

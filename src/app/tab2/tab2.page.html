@@ -18,17 +18,21 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <div class="messageSpace">
-    <div *ngFor="let message of messages">
-      <ion-card class="message">
-        <ion-card-content>
-          <ion-card-header>
-            <ion-card-subtitle>User: {{message.user_id}}</ion-card-subtitle>
-          </ion-card-header>
+    <div *ngFor="let message of messages; let i = index">
+      <div [ngClass]="{
+        'myMsg': messages[i].isMyMsg
+      }">
+        <ion-card class="message">
           <ion-card-content>
-            {{message.message}}
+            <ion-card-header>
+              <ion-card-subtitle>User: {{message.user_id}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              {{message.message}}
+            </ion-card-content>
           </ion-card-content>
-        </ion-card-content>
-      </ion-card>
+        </ion-card>
+      </div>
     </div>
   </div>
   <div class="messageInput">

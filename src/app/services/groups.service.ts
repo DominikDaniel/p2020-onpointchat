@@ -21,4 +21,8 @@ export class GroupsService {
   getGroupId(){
     return this.group_id;
   }
+
+  addGroup(groupname){
+    return this.http.post("/onpointchat-BE/group",{name: groupname});
+  }
 }

@@ -22,6 +22,7 @@ export class Tab2Page {
     message: ""
   };
   isDisabled = true;
+
   constructor(private navController: NavController,private userService: UserService,
     private messagesService: MessagesService,private groupsService: GroupsService) {}
 
@@ -34,10 +35,15 @@ export class Tab2Page {
     this.userService.getUserList().subscribe(users => {
       this.users = users as any;
     });
+    var myId = this.userService.getUserId();
     this.messagesService.loadMessages(this.group_id).subscribe(messages => {
       this.messages = messages as any;
       for(let i = 0; i<this.messages.length;i++)
       {
+        if(this.messages[i].user_id == myId)
+        {
+          this.messages[i].isMyMsg = true;
+        }
         for(let j = 0; j<this.users.length;j++)
         {
           if(this.messages[i].user_id == this.users[j].id)
@@ -46,6 +52,7 @@ export class Tab2Page {
           }
         }
       }
+      
     });
   }
 
