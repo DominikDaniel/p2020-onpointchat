@@ -10,11 +10,11 @@ export class MessagesService {
   constructor(private http: HttpClient) { }
 
   loadMessages(group_id){
-    return this.http.get(`http://localhost:8000/messages/${group_id}`);
+    return this.http.get(`/onpointchat-BE//messages/${group_id}`);
   }
 
   sendMessage(message)
   {
-    return this.http.post("http://localhost:8000/message",message);
+    return this.http.post("/onpointchat-BE/message",message);
   }
 }
