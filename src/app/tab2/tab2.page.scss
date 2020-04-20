@@ -1,3 +1,6 @@
+ion-content{
+  --ion-background-color:white;
+}
 ion-toolbar ion-title{
   margin: auto;
   display: table;
@@ -5,8 +8,11 @@ ion-toolbar ion-title{
 }
 .topBar{
   display: inline-flex;
+  background-color:white;
   color:#0055CC;
+  width: 100%;
 }
+
 .topBar div{
   display: inline-flex;
 }
@@ -14,7 +20,7 @@ ion-toolbar ion-title{
   margin: auto;
 }
 .messageSpace{
-  margin-bottom: 55px;
+  margin-bottom: 10%;
 }
 .message{
   background-color: #E5E5EA;
@@ -31,14 +37,12 @@ ion-toolbar ion-title{
 }
 .messageInput{
   position: fixed;
-  bottom: 5px;
+  bottom: 0px;
+  margin-top: 10px;
   display: inline-flex;
   width: 100%;
   padding-right: 10px;
   z-index: 1;
-  background-color: white;
-}
-.messageInput ion-input{
-  border: solid 1px gray;
-  border-radius: 10px;
+  background-color:white;
+  color:black;
 }

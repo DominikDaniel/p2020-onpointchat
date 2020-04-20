@@ -2,7 +2,13 @@ ion-content{
     --ion-background-color: #0055CC;
 }
 div{
-    margin-top: 50%;
+    margin-top: 25%;
+}
+@media screen and (max-height: 900px)
+{
+    div{
+        margin-top:50%;
+    }
 }
 ion-title{
     color: white;

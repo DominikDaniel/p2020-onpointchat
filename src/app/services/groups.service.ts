@@ -11,7 +11,7 @@ export class GroupsService {
   group_id = "1";
 
   loadGroups(){
-    return this.http.get("http://localhost:8000/groups");
+    return this.http.get("/onpointchat-BE/groups");
   }
 
   setGroupId(group_id){
