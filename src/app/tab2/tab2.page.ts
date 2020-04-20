@@ -21,6 +21,7 @@ export class Tab2Page {
     group_id: "",
     message: ""
   };
+  isDisabled = true;
   constructor(private navController: NavController,private userService: UserService,
     private messagesService: MessagesService,private groupsService: GroupsService) {}
 
@@ -35,7 +36,6 @@ export class Tab2Page {
     });
     this.messagesService.loadMessages(this.group_id).subscribe(messages => {
       this.messages = messages as any;
-      //console.log(messages)
       for(let i = 0; i<this.messages.length;i++)
       {
         for(let j = 0; j<this.users.length;j++)
@@ -52,7 +52,6 @@ export class Tab2Page {
   getGroupName(){
     this.groupsService.loadGroups().subscribe(groups => {
       this.groups = groups as any;
-      //console.log(this.groups);
           for (let i = 0; i < this.groups.length; i++) {
       if( this.group_id == this.groups[i].id){
         this.group_name = this.groups[i].name;
@@ -61,8 +60,7 @@ export class Tab2Page {
     });
   }
 
-  sendMessage()
-  {
+  sendMessage(){
     this.newMessage.user_id = this.userService.getUserId();
     this.newMessage.group_id = this.group_id;
     this.messagesService.sendMessage(this.newMessage).subscribe(()=>{
@@ -81,6 +79,17 @@ export class Tab2Page {
 
   doRefresh(event){
     this.loadMessages();
-    event.target.complete();
+    setTimeout(function(){
+      event.target.complete();
+    },1000)
+  }
+
+  checkInput(){
+    if (this.newMessage.message.trim().length == 0){
+      console.log(this.newMessage.message.trim().length)
+      this.isDisabled = true;
+    }else{
+      this.isDisabled = false;
+    }
   }
 }
