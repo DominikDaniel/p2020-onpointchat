@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar color="primary">
     <ion-grid>
       <ion-row>
@@ -18,39 +18,20 @@
       </ion-row>
     </ion-grid>
   </ion-toolbar>
-  <div class="topBar">
-    <div class="backBtn" (click)="goBack()">
-      <ion-icon name="arrow-back"></ion-icon>
-      <p>Back</p>
-    </div>
-    <ion-title class="ion-text-center">{{group_name}}</ion-title>
-  </div>
 </ion-header>
-
-<ion-content >
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  <div id="mySpace" class="messageSpace">
-    <div *ngFor="let message of messages; let i = index">
-      <div [ngClass]="{
-        'myMsg': messages[i].isMyMsg
-      }">
-        <ion-card class="message">
-          <ion-card-content>
-            <ion-card-header>
-              <ion-card-subtitle>{{message.name}}</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              {{message.message}}
-            </ion-card-content>
-          </ion-card-content>
-        </ion-card>
-      </div>
-    </div>
-  </div>
-  <div class="messageInput">
-    <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message" (ionChange)="checkInput()"></ion-input>
-    <ion-button [disabled]="isDisabled" (click)="sendMessage()">Send</ion-button>
+<ion-content>
+  <ion-header>
+  </ion-header>
+  <div *ngFor="let group of groups">
+    <ion-card  (click)="enterGroupChat(group.id)">
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-subtitle>{{group.name}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Enter group chat</p>
+        </ion-card-content>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

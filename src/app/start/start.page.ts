@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from "../services/user.service";
 import { MessagesService } from "../services/messages.service";
@@ -13,26 +13,37 @@ import { error } from 'util';
 })
 export class StartPage {
 
-  constructor(private navController: NavController, 
+  constructor(public alertController: AlertController,
+    private navController: NavController, 
     private router: Router,
     private userService: UserService,
     private messagesService: MessagesService) {}
 
   nickname = "";
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: 'You must set a nickname before entering chat!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
   login()
     {
       var temp = this.nickname.replace(/\s/g, "");
       if(temp == "")
       {
-        console.error();
+        this.presentAlert()
       }
       else if(temp !== "")
       {
         this.userService.create(this.nickname).subscribe(userId =>{
           this.userService.setUserId(userId);
           this.userService.storeId();
-          this.navController.navigateRoot('/tabs/tab2');
+          this.navController.navigateRoot('/tabs/tab1');
         });
       }
     }

@@ -1,15 +1,52 @@
+ion-content{
+  --ion-background-color:white;
+}
 ion-toolbar ion-title{
   margin: auto;
   display: table;
   font-size: 1.75rem;
 }
-ion-card-subtitle{
-  --color: black;
-  font-size: 19px;
+.topBar{
+  display: inline-flex;
+  background-color:white;
+  color:#0055CC;
+  width: 100%;
 }
-ion-content{
-  --ion-background-color: white;
+
+.topBar div{
+  display: inline-flex;
 }
-ion-card-content{
-  background-color:#e5e5ea;
+.topBar ion-icon{
+  margin: auto;
+}
+.messageSpace{
+  --padding-bottom: 10px;
+}
+.message{
+  background-color: #E5E5EA;
+  width:fit-content;
+  height: auto;
+  border-radius: 12px;
+}
+.message ion-card-header{
+  padding: 5px;
+}
+.message ion-card-content{
+  padding: 0px 5px 2px 5px;
+  color: black;
+}
+.message ion-card-subtitle{
+  color: black;
+  font-weight: bold;
+}
+.messageInput{
+  position: fixed;
+  bottom: 0px;
+  margin-top: 10px;
+  display: inline-flex;
+  width: 100%;
+  padding-right: 10px;
+  z-index: 1;
+  background-color:white;
+  color:black;
 }

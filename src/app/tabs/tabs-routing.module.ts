@@ -27,7 +27,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
+     /* {
         path: 'tab3',
         children: [
           {
@@ -46,7 +46,7 @@ const routes: Routes = [
               import('../tab4/tab4.module').then(m => m.Tab4PageModule)
           }
         ]
-      },
+      },*/
       {
         path: '',
         redirectTo: '/tabs/tab1',
