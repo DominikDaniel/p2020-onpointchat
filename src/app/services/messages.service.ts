@@ -9,7 +9,7 @@ export class MessagesService {
 
   constructor(private http: HttpClient) { }
 
-  url = "/onpointchat-BE";
+  url = "http://localhost:8000";
 
   loadMessages(group_id){
     return this.http.get(`${this.url}/messages/${group_id}`);

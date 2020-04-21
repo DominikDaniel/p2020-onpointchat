@@ -46,6 +46,7 @@ export class Tab1Page {
     this.userService.getUserList().subscribe(users => {
       this.users = users as any;
     });
+    var myId = this.userService.getUserId();
     this.messagesService.loadMessages(this.group_id).subscribe(messages => {
       this.messages = messages as any;
       for(let i = 0; i<this.messages.length;i++)
@@ -54,8 +55,12 @@ export class Tab1Page {
         {
           if(this.messages[i].user_id == this.users[j].id)
           {
-            this.messages[i].user_id = this.users[j].name;
+            this.messages[i].name = this.users[j].name;
           }
+        }
+        if(this.messages[i].user_id == myId)
+        {
+          this.messages[i].isMyMsg = true;
         }
       }
       setTimeout(()=>{this.scrollToBottomOnInit();},200);

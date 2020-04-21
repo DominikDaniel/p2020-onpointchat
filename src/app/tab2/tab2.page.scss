@@ -6,7 +6,7 @@ ion-toolbar ion-title{
 ion-card-subtitle{
   --color: black;
   font-size: 19px;
-
+}
 #logoutBtn ion-button{
   margin: auto;
   display: table;
@@ -24,11 +24,12 @@ ion-card-content{
 .myMsg{
   text-align: right;
 }
+
 .myMsg ion-card-content{
   color:white;  
   background-color:#0055CC;
 }
+
 .myMsg ion-card-subtitle{
   color:#E5E5EA;
 }
-

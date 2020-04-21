@@ -6,6 +6,16 @@ ion-toolbar ion-title{
   display: table;
   font-size: 1.75rem;
 }
+ion-card{
+  display: inline-block;
+}
+
+#logoutBtn ion-button{
+  margin: auto;
+  display: table;
+  float: right;
+}
+
 .topBar{
   display: inline-flex;
   background-color:white;
@@ -20,7 +30,7 @@ ion-toolbar ion-title{
   margin: auto;
 }
 .messageSpace{
-  --padding-bottom: 10px;
+  --padding-bottom: 5%;
 }
 .message{
   background-color: #E5E5EA;
@@ -49,4 +59,15 @@ ion-toolbar ion-title{
   z-index: 1;
   background-color:white;
   color:black;
+}
+
+.myMsg{
+  text-align: right;
+}
+.myMsg ion-card-content{
+  color:white;  
+  background-color:#0055CC;
+}
+.myMsg ion-card-subtitle{
+  display: none;
 }

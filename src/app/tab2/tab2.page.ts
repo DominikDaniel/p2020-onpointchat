@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GroupsService } from '../services/groups.service';
+import { UserService } from "../services/user.service";
 import { Router, NavigationExtras } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { ThrowStmt } from '@angular/compiler';
@@ -13,7 +14,8 @@ export class Tab2Page {
   groups = [];
 
   constructor(private navController: NavController, 
-    private router: Router,private GroupsService: GroupsService) {}
+    private router: Router,private GroupsService: GroupsService,
+    private userService: UserService) {}
   ngOnInit() {
     this.loadGroups();
   } 
@@ -30,5 +32,8 @@ export class Tab2Page {
     this.GroupsService.setGroupId(group_id);
     this.navController.navigateRoot('/tabs/tab1');
   }
-
+  logout(){
+    this.userService.deleteId();
+    this.navController.navigateRoot('/start')
+  }
 }

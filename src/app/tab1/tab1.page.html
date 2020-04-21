@@ -1,8 +1,22 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
-    <ion-title>
-      OnPointChat
-    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+
+        </ion-col>
+        <ion-col>
+          <ion-title>
+            OnPointChat
+          </ion-title>
+        </ion-col>
+        <ion-col id="logoutBtn">
+          <ion-button (click)="logout()">
+            Odhlásiť
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
   <div class="topBar">
     <ion-title class="ion-text-center">{{group_name}}</ion-title>
@@ -14,17 +28,22 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-content class="messageSpace" #content>
-    <div *ngFor="let message of messages">
-      <ion-card class="message">
-        <ion-card-content>
-          <ion-card-header>
-            <ion-card-subtitle>{{message.user_id}}</ion-card-subtitle>
-          </ion-card-header>
+    <div *ngFor="let message of messages; let i = index">
+      <div [ngClass]="{
+        'myMsg': messages[i].isMyMsg
+      }">
+        <ion-card class="message">
           <ion-card-content>
-            {{message.message}}
+            <ion-card-header>
+              <ion-card-subtitle>{{message.name}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              {{message.message}}
+            </ion-card-content>
           </ion-card-content>
-        </ion-card-content>
-      </ion-card>
+        </ion-card>
+      </div>
+      
     </div>
   </ion-content>
   <div class="messageInput">

@@ -11,7 +11,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private storage: Storage) { }
 
-  url = "/onpointchat-BE";
+  url = "http://localhost:8000";
   user_id;
 
   create(nickname) {
