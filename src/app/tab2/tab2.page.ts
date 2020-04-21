@@ -26,6 +26,11 @@ export class Tab2Page {
   constructor(private navController: NavController,private userService: UserService,
     private messagesService: MessagesService,private groupsService: GroupsService) {}
 
+  ngOnInit(){
+    this.userService.checkStg();
+
+  }
+
   ionViewWillEnter(){
     this.loadMessages();
   }
@@ -99,4 +104,10 @@ export class Tab2Page {
       this.isDisabled = false;
     }
   }
+
+  logout(){
+    this.userService.deleteId();
+    this.navController.navigateRoot('/start')
+  }
+
 }

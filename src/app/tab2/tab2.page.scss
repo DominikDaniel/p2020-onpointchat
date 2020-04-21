@@ -6,6 +6,13 @@ ion-toolbar ion-title{
   display: table;
   font-size: 1.75rem;
 }
+
+#logoutBtn ion-button{
+  margin: auto;
+  display: table;
+  float: right;
+}
+
 ion-card{
   display: inline-block;
 }
