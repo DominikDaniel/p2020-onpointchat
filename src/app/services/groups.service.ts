@@ -9,9 +9,9 @@ export class GroupsService {
   constructor(private http: HttpClient) { }
 
   group_id = "1";
-
+  url = "/onpointchat-BE";
   loadGroups(){
-    return this.http.get("/onpointchat-BE/groups");
+    return this.http.get(`${this.url}/groups`);
   }
 
   setGroupId(group_id){
@@ -20,5 +20,9 @@ export class GroupsService {
 
   getGroupId(){
     return this.group_id;
+  }
+
+  addGroup(groupname){
+    return this.http.post(`${this.url}/group`,{name: groupname});
   }
 }

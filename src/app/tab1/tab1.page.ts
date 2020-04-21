@@ -29,6 +29,10 @@ export class Tab1Page {
   constructor(private navController: NavController,private userService: UserService,
     private messagesService: MessagesService,private groupsService: GroupsService) {}
 
+  ngOnInit(){
+    this.userService.checkStg();
+  }
+
   ionViewWillEnter(){
     this.loadMessages();
   }
@@ -99,5 +103,10 @@ export class Tab1Page {
 
   scrollToBottomOnInit() {
     this.content.scrollToBottom(300);
+  }
+  
+  logout(){
+    this.userService.deleteId();
+    this.navController.navigateRoot('/start')
   }
 }

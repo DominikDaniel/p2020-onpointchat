@@ -11,6 +11,7 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class Tab2Page {
   groups = [];
+
   constructor(private navController: NavController, 
     private router: Router,private GroupsService: GroupsService) {}
   ngOnInit() {
@@ -19,6 +20,7 @@ export class Tab2Page {
 
   loadGroups(){
     this.GroupsService.loadGroups().subscribe(groups => {
+
       this.groups = groups as any;
       console.log(this.groups);
     });
@@ -28,4 +30,5 @@ export class Tab2Page {
     this.GroupsService.setGroupId(group_id);
     this.navController.navigateRoot('/tabs/tab1');
   }
+
 }
