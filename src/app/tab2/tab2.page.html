@@ -1,38 +1,23 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar color="primary">
     <ion-title>
       OnPointChat
     </ion-title>
   </ion-toolbar>
-  <div class="topBar">
-    <div class="backBtn" (click)="goBack()">
-      <ion-icon name="arrow-back"></ion-icon>
-      <p>Back</p>
-    </div>
-    <ion-title class="ion-text-center">{{group_name}}</ion-title>
-  </div>
 </ion-header>
-
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  <div class="messageSpace">
-    <div *ngFor="let message of messages">
-      <ion-card class="message">
+  <ion-header>
+  </ion-header>
+  <div *ngFor="let group of groups">
+    <ion-card  (click)="enterGroupChat(group.id)">
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-subtitle>{{group.name}}</ion-card-subtitle>
+        </ion-card-header>
         <ion-card-content>
-          <ion-card-header>
-            <ion-card-subtitle>User: {{message.user_id}}</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            {{message.message}}
-          </ion-card-content>
+          <p>Enter group chat</p>
         </ion-card-content>
-      </ion-card>
-    </div>
-  </div>
-  <div class="messageInput">
-    <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message" (ionChange)="checkInput()"></ion-input>
-    <ion-button [disabled]="isDisabled" (click)="sendMessage()">Send</ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
