@@ -20,11 +20,15 @@ export class StartPage {
     private messagesService: MessagesService) {}
 
   nickname = "";
+  
+  ngOnInit(){
+    this.userService.skipStart();
+  }
 
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Alert',
-      message: 'You must set a nickname before entering chat!',
+      message: 'Musíte si nastaviť meno pred vstúpením do chatu!',
       buttons: ['OK']
     });
 

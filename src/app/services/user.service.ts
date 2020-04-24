@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { Storage } from '@ionic/storage';
+import { NavController } from '@ionic/angular';
+
 
 
 @Injectable({
@@ -9,7 +11,9 @@ import { Storage } from '@ionic/storage';
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private storage: Storage) { }
+  constructor(private http: HttpClient, 
+    private storage: Storage,
+    private navController: NavController) { }
 
   url = "http://localhost:8000";
   user_id;
@@ -50,7 +54,17 @@ export class UserService {
       }
       else
       {
-        console.log("No user saved.");
+        console.log("Žiadny používateľ nebol uložený.");
+      }
+    });
+  }
+
+  skipStart(){
+    this.storage.get('Id').then((id)=>
+    {
+      if(id !== null)
+      {
+        this.navController.navigateRoot('/tabs/tab1');
       }
     });
   }

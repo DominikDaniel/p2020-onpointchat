@@ -30,6 +30,7 @@ export class Tab2Page {
 
   enterGroupChat(group_id){
     this.GroupsService.setGroupId(group_id);
+    this.GroupsService.storeId();
     this.navController.navigateRoot('/tabs/tab1');
   }
   logout(){
