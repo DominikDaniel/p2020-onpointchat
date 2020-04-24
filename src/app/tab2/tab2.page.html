@@ -23,7 +23,7 @@
   <ion-header>
   </ion-header>
   <div *ngFor="let group of groups">
-    <ion-card  (click)="enterGroupChat(group.id)">
+    <ion-card class="group" (click)="enterGroupChat(group.id)">
       <ion-card-content>
         <ion-card-header>
           <ion-card-subtitle>{{group.name}}</ion-card-subtitle>

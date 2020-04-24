@@ -11,10 +11,12 @@ ion-card-subtitle{
   margin: auto;
   display: table;
   float: right;
+  --background: #037aff;
 }
 
 ion-content{
   --ion-background-color: white;
+  padding: 2px;
 }
 
 ion-card-content{
@@ -32,4 +34,8 @@ ion-card-content{
 
 .myMsg ion-card-subtitle{
   color:#E5E5EA;
+}
+
+.group{
+  margin: 17px;
 }

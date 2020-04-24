@@ -1,5 +1,6 @@
 ion-content{
   --ion-background-color:white;
+  padding: 2px;
 }
 ion-toolbar ion-title{
   margin: auto;
@@ -14,6 +15,7 @@ ion-card{
   margin: auto;
   display: table;
   float: right;
+  --background: #037aff;
 }
 
 .topBar{
@@ -30,13 +32,15 @@ ion-card{
   margin: auto;
 }
 .messageSpace{
-  --padding-bottom: 5%;
+  --padding-bottom: 10%;
 }
 .message{
   background-color: #E5E5EA;
   width:fit-content;
   height: auto;
   border-radius: 12px;
+  margin: 5px 10px;
+  max-width: 80%;
 }
 .message ion-card-header{
   padding: 5px;
