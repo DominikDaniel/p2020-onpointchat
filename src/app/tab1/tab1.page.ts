@@ -26,11 +26,14 @@ export class Tab1Page {
 
   @ViewChild('content',{static: false}) private content: any;
 
-  constructor(private navController: NavController,private userService: UserService,
-    private messagesService: MessagesService,private groupsService: GroupsService) {}
+  constructor(private navController: NavController,
+    private userService: UserService,
+    private messagesService: MessagesService,
+    private groupsService: GroupsService) {}
 
   ngOnInit(){
     this.userService.checkStg();
+    this.groupsService.checkStg();
   }
 
   ionViewWillEnter(){
