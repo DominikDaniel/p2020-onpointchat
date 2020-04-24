@@ -22,7 +22,14 @@ ion-content{
 ion-card-content{
   background-color:#e5e5ea;
 }
-
+ion-card-content ion-icon{
+  position: absolute;
+  top: -42px;
+  height: 60px;
+  width: 60px;
+  right: 10px;
+  color: #037aff;
+}
 .myMsg{
   text-align: right;
 }
