@@ -6,11 +6,15 @@ ion-toolbar ion-title{
   margin: auto;
   display: table;
   font-size: 1.75rem;
+  color: white;
+  padding-left: 0;
 }
 ion-card{
   display: inline-block;
 }
-
+.ion-text-center{
+  align-items: flex-end;
+}
 #logoutBtn ion-button{
   margin: auto;
   display: table;
@@ -30,9 +34,6 @@ ion-card{
 }
 .topBar ion-icon{
   margin: auto;
-}
-.messageSpace{
-  --padding-bottom: 10%;
 }
 .message{
   background-color: #E5E5EA;
@@ -54,12 +55,10 @@ ion-card{
   font-weight: bold;
 }
 .messageInput{
-  position: fixed;
   bottom: 0px;
-  margin-top: 10px;
   display: inline-flex;
-  width: 100%;
-  padding-right: 10px;
+  width: 100%;    
+  padding: 0 8px;
   z-index: 1;
   background-color:white;
   color:black;
@@ -74,4 +73,22 @@ ion-card{
 }
 .myMsg ion-card-subtitle{
   display: none;
+}
+@media screen and (max-width:375px){
+  .ios #logoutBtn ion-button{
+    font-size: 15px;
+  }
+  .ios ion-toolbar ion-title{
+    font-size: 1.4rem;
+    padding-top: 14px;
+  }
+}
+@media screen and (max-width:325px){
+  .ios #logoutBtn ion-button{
+    font-size: 12px;
+  }
+  .ios ion-toolbar ion-title{
+    font-size: 1.2rem;
+    padding-top: 11px;
+  }
 }

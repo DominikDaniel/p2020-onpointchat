@@ -3,7 +3,6 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-
         </ion-col>
         <ion-col>
           <ion-title>
@@ -23,11 +22,10 @@
   </div>
 </ion-header>
 
-<ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
   <ion-content class="messageSpace" #content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <div *ngFor="let message of messages; let i = index">
       <div [ngClass]="{
         'myMsg': messages[i].isMyMsg
@@ -45,8 +43,11 @@
       </div> 
     </div>
   </ion-content>
-  <div class="messageInput">
-    <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message" (ionChange)="checkInput()"></ion-input>
-    <ion-button [disabled]="isDisabled" (click)="sendMessage()">Odoslať</ion-button>
-  </div>
-</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="messageInput">
+      <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message" (ionChange)="checkInput()"></ion-input>
+      <ion-button [disabled]="isDisabled" (click)="sendMessage()">Odoslať</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
