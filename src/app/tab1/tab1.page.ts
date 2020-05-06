@@ -6,6 +6,7 @@ import { GroupsService } from '../services/groups.service';
 import { NavController } from '@ionic/angular';
 import { IonContent } from "@ionic/angular";
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -31,19 +32,28 @@ export class Tab1Page {
     private messagesService: MessagesService,
     private groupsService: GroupsService) {}
 
+
+
   ngOnInit(){
     this.userService.checkStg();
     this.groupsService.checkStg();
   }
+  
+  msgLoading(){
+    setInterval(()=>{
+      this.loadMessages();
+    },10000);
+  }
 
   ionViewWillEnter(){
     this.loadMessages();
+    this.msgLoading();
   }
   ionViewWillLeave(){
     this.messages = [];
     this.group_name = "";
   }
-  loadMessages(){ 
+  loadMessages(){
     this.group_id = this.groupsService.getGroupId();
     this.getGroupName()
     this.userService.getUserList().subscribe(users => {

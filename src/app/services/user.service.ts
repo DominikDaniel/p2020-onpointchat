@@ -15,8 +15,8 @@ export class UserService {
     private storage: Storage,
     private navController: NavController) { }
 
-  url = "/onpointchat-BE";
-  user_id;
+    url = "/onpointchat-BE";
+    user_id;
 
   create(nickname) {
     return this.http.post(`${this.url}/user`,{name: nickname});

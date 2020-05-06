@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { GroupsService } from '../services/groups.service';
 import { UserService } from "../services/user.service";
 import { Router, NavigationExtras } from '@angular/router';
@@ -13,12 +13,18 @@ import { ThrowStmt } from '@angular/compiler';
 export class Tab2Page {
   groups = [];
 
+  @ViewChild('content',{static: false}) private content: any;
+
+
   constructor(private navController: NavController, 
     private router: Router,private GroupsService: GroupsService,
     private userService: UserService) {}
-  ngOnInit() {
+
+  
+  ionViewWillEnter()
+  {
     this.loadGroups();
-  } 
+  }
 
   loadGroups(){
     this.GroupsService.loadGroups().subscribe(groups => {
