@@ -12,6 +12,7 @@ export class GroupsService {
 
   group_id = "1";
   url = "/onpointchat-BE";
+  
   loadGroups(){
     return this.http.get(`${this.url}/groups`);
   }
