@@ -25,6 +25,7 @@ export class Tab1Page {
   };
   isDisabled = true;
   errorMsg = false;
+  interval;
   
 
   @ViewChild('content',{static: false}) private content: any;
@@ -41,11 +42,11 @@ export class Tab1Page {
     this.userService.checkStg();
     this.groupsService.checkStg();
   }
-  
+
   msgLoading(){
-    setInterval(()=>{
+    this.interval = setInterval(()=>{
       this.loadMessages();
-    },10000);
+    },5000);
   }
 
   ionViewWillEnter(){
@@ -53,6 +54,7 @@ export class Tab1Page {
     this.msgLoading();
   }
   ionViewWillLeave(){
+    clearInterval(this.interval);
     this.messages = [];
     this.group_name = "";
   }
@@ -147,6 +149,7 @@ export class Tab1Page {
   
   logout(){
     this.userService.deleteId();
+    clearInterval(this.interval);
     this.navController.navigateRoot('/start')
   }
 }
