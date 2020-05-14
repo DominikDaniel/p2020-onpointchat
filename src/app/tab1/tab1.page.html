@@ -46,7 +46,7 @@
 <ion-footer>
   <ion-toolbar>
     <div class="messageInput">
-      <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message" (ionChange)="checkInput()"></ion-input>
+      <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message" (keyup.enter)="sendMessage()" (ionChange)="checkInput()"></ion-input>
       <ion-button [disabled]="isDisabled" (click)="sendMessage()">Odoslať</ion-button>
     </div>
   </ion-toolbar>

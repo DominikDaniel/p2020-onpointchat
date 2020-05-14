@@ -3,7 +3,7 @@ import { UserService } from "../services/user.service";
 import { MessagesService } from "../services/messages.service";
 import { ActivatedRoute, Router } from '@angular/router';
 import { GroupsService } from '../services/groups.service';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { IonContent } from "@ionic/angular";
 
 
@@ -24,10 +24,14 @@ export class Tab1Page {
     message: ""
   };
   isDisabled = true;
+  errorMsg = false;
+  interval;
+  
 
   @ViewChild('content',{static: false}) private content: any;
 
-  constructor(private navController: NavController,
+  constructor(public alertController: AlertController,
+    private navController: NavController,
     private userService: UserService,
     private messagesService: MessagesService,
     private groupsService: GroupsService) {}
@@ -38,11 +42,11 @@ export class Tab1Page {
     this.userService.checkStg();
     this.groupsService.checkStg();
   }
-  
+
   msgLoading(){
-    setInterval(()=>{
+    this.interval = setInterval(()=>{
       this.loadMessages();
-    },10000);
+    },5000);
   }
 
   ionViewWillEnter(){
@@ -50,9 +54,22 @@ export class Tab1Page {
     this.msgLoading();
   }
   ionViewWillLeave(){
+    clearInterval(this.interval);
     this.messages = [];
     this.group_name = "";
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: 'Nemôžete odoslať prázdnu správu!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+
   loadMessages(){
     this.group_id = this.groupsService.getGroupId();
     this.getGroupName()
@@ -94,14 +111,21 @@ export class Tab1Page {
   sendMessage(){
     this.newMessage.user_id = this.userService.getUserId();
     this.newMessage.group_id = this.group_id;
-    this.messagesService.sendMessage(this.newMessage).subscribe(()=>{
+    if (this.newMessage.message.trim().length == 0){
+      this.isDisabled = true;
+      this.presentAlert();
+    }else{
+      this.isDisabled = false;
+      
+      this.messagesService.sendMessage(this.newMessage).subscribe(()=>{
       this.loadMessages();
-    });
-    this.newMessage = {
-      user_id: "",
-      group_id: "",
-      message: ""
-    };
+      });
+      this.newMessage = {
+        user_id: "",
+        group_id: "",
+        message: ""
+      };
+    }
   }
 
   doRefresh(event){
@@ -125,6 +149,7 @@ export class Tab1Page {
   
   logout(){
     this.userService.deleteId();
+    clearInterval(this.interval);
     this.navController.navigateRoot('/start')
   }
 }

@@ -11,7 +11,6 @@ export class MessagesService {
 
   url = "/onpointchat-BE";
 
-
   loadMessages(group_id){
     return this.http.get(`${this.url}/messages/${group_id}`);
   }

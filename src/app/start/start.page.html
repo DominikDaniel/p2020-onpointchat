@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <div class="nicknameInput">
-      <ion-input [(ngModel)]="nickname" placeholder="Nickname" required></ion-input>
+      <ion-input [(ngModel)]="nickname" (keyup.enter)="login()" placeholder="Nickname" required></ion-input>
       <ion-button (click)="login()">ok</ion-button>
     </div>
   </div>
