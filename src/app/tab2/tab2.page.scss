@@ -47,3 +47,22 @@ ion-card-content ion-icon{
 .group{
   margin: 17px;
 }
+
+@media screen and (max-width:375px){
+  .ios #logoutBtn ion-button{
+    font-size: 15px;
+  }
+  .ios ion-toolbar ion-title{
+    font-size: 1.4rem;
+    padding-top: 14px;
+  }
+}
+@media screen and (max-width:325px){
+  .ios #logoutBtn ion-button{
+    font-size: 12px;
+  }
+  .ios ion-toolbar ion-title{
+    font-size: 1.2rem;
+    padding-top: 11px;
+  }
+}
