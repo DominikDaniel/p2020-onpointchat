@@ -1,8 +1,9 @@
-ion-toolbar ion-title{
+ion-col ion-title{
   margin: auto;
   display: table;
   font-size: 1.75rem;
   color: white;
+  padding-left: 0;
 }
 ion-card-subtitle{
   --color: black;
