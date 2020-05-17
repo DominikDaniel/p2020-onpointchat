@@ -28,7 +28,9 @@ export class AddRoomPage implements OnInit {
 
   addGroup(){
     this.newGroup.user_id = this.userService.getUserId();
-    this.groupsService.addGroup(this.newGroup);
-    this.navController.navigateRoot('/tabs/tab2');
+    this.groupsService.addGroup(this.newGroup).subscribe(()=>{
+      this.navController.navigateRoot('/tabs/tab2');
+    });
+    
   }
 }

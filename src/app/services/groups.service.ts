@@ -11,7 +11,7 @@ export class GroupsService {
   constructor(private http: HttpClient, private storage: Storage) { }
 
   group_id = "1";
-  url = "/onpointchat-BE";
+  url = "http://localhost:8000";
   
   loadGroups(){
     return this.http.get(`${this.url}/groups`);
