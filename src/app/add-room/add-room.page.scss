@@ -1,0 +1,51 @@
+ion-col ion-title{
+    margin: auto;
+    display: table;
+    font-size: 1.75rem;
+    color: white;
+    padding-left: 0;
+}
+#logoutBtn ion-button{
+    margin: auto;
+    display: table;
+    float: right;
+    --background: #037aff;
+}
+.topBar{
+    display: inline-flex;
+    background-color:white;
+    color:#0055CC;
+    width: 100%;
+} 
+.topBar div{
+    display: inline-flex;
+}
+.topBar ion-icon{
+    margin: auto;
+}
+ion-content ion-title{
+    text-align: center;
+    text-decoration: underline;
+}
+.idk{
+    width: 90%;
+    margin: auto;
+}
+@media screen and (max-width:375px){
+    .ios #logoutBtn ion-button{
+      font-size: 15px;
+    }
+    .ios ion-toolbar ion-title{
+      font-size: 1.4rem;
+      padding-top: 14px;
+    }
+  }
+  @media screen and (max-width:325px){
+    .ios #logoutBtn ion-button{
+      font-size: 12px;
+    }
+    .ios ion-toolbar ion-title{
+      font-size: 1.2rem;
+      padding-top: 11px;
+    }
+  }

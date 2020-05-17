@@ -52,4 +52,7 @@ export class Tab2Page {
     this.userService.deleteId();
     this.navController.navigateRoot('/start')
   }
+  addRoom(){
+    this.navController.navigateRoot('/add-room')
+  }
 }

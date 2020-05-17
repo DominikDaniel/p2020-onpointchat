@@ -48,8 +48,8 @@ export class GroupsService {
     });
   }
 
-  addGroup(groupname){
-    return this.http.post(`${this.url}/group`,{name: groupname});
+  addGroup(group){
+    return this.http.post(`${this.url}/group`,group);
   }
   getMessageCount(){
     return this.http.get(`${this.url}/messagecount`)

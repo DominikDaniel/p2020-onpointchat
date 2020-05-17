@@ -32,19 +32,15 @@ ion-card-content ion-icon{
   right: 10px;
   color: #037aff;
 }
-.myMsg{
-  text-align: right;
+ion-footer div{
+  bottom: 0px;
+  display: inline-flex;
+  position: fixed;
 }
-
-.myMsg ion-card-content{
-  color:white;  
-  background-color:#0055CC;
+.addRoomB{
+  margin: 9px;
+  font-size: 9px;
 }
-
-.myMsg ion-card-subtitle{
-  color:#E5E5EA;
-}
-
 .group{
   margin: 17px;
 }
