@@ -12,6 +12,7 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class Tab2Page {
   groups = [];
+  deleteCode;
 
   @ViewChild('content',{static: false}) private content: any;
 
@@ -30,16 +31,7 @@ export class Tab2Page {
     this.GroupsService.loadGroups().subscribe(groups => {
 
       this.groups = groups as any;
-      this.GroupsService.getMessageCount().subscribe(groups2 => {
-        for(let i = 0; i<this.groups.length; i++)
-        {
-          if(this.groups[i].id == groups2[i].id)
-          {
-            this.groups[i].msgCount = groups2[i].messages[0].count;
-          }
-        }
-        console.log(this.groups);
-      });
+ 
     });
   }
 
@@ -54,5 +46,22 @@ export class Tab2Page {
   }
   addRoom(){
     this.navController.navigateRoot('/add-room')
+  }
+
+  showDelete(i){
+    this.groups[i].deleteActive = true;
+  }
+
+  cancelDelete(i){
+    this.groups[i].deleteActive = false;
+    this.deleteCode = '';
+  }
+
+  deleteRoom(id){
+    this.GroupsService.deleteGroup(id,this.deleteCode).subscribe(()=>{
+      this.deleteCode = '';
+      this.GroupsService.setGroupId("1");
+      this.loadGroups();
+    });
   }
 }

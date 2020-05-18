@@ -14,7 +14,7 @@ export class GroupsService {
   url = "/onpointchat-BE";
   
   loadGroups(){
-    return this.http.get(`${this.url}/groups`);
+    return this.http.get(`${this.url}/messagecount`);
   }
 
   setGroupId(group_id){
@@ -51,7 +51,8 @@ export class GroupsService {
   addGroup(group){
     return this.http.post(`${this.url}/group`,group);
   }
-  getMessageCount(){
-    return this.http.get(`${this.url}/messagecount`)
+
+  deleteGroup(id, code){
+    return this.http.delete(`${this.url}/group/${id}/${code}`);
   }
 }

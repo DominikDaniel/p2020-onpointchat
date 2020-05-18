@@ -28,8 +28,10 @@
   <div class="idk">
     <ion-title>Vytvorenie miestnosti</ion-title>
     <ion-item>
-      <ion-label position="stacked">Fixed Label</ion-label>
-      <ion-input [(ngModel)]="newGroup.name" (keyup.enter)="addGroup()"></ion-input>
+      <ion-label position="stacked">Meno miestnosti</ion-label>
+      <ion-input [(ngModel)]="newGroup.name" (keyup.enter)="addGroup()" required></ion-input>
+      <ion-label position="stacked">Kód k odstráneniu</ion-label>
+      <ion-input [(ngModel)]="newGroup.code" minLenght="4" maxLength="4" (keyup.enter)="addGroup()" type=number required></ion-input>
     </ion-item>
     <ion-button (click)="addGroup()">Vytvoriť</ion-button>
   </div>
