@@ -45,6 +45,17 @@ ion-footer div{
   margin: 17px;
 }
 
+.isdeleteActive{
+  display: block;
+}
+.noDeleteActive{
+  display: none;
+}
+
+.isBroadcast{
+  display: none;
+}
+
 @media screen and (max-width:375px){
   .ios #logoutBtn ion-button{
     font-size: 15px;

@@ -24,7 +24,6 @@ export class Tab1Page {
     message: ""
   };
   isDisabled = true;
-  errorMsg = false;
   interval;
   
 
