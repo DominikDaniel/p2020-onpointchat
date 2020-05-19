@@ -35,16 +35,13 @@ export class StartPage {
     await alert.present();
   }
 
-  login()
-    {
+  login() {
       var temp = this.nickname.replace(/\s/g, "");
-      if(temp == "")
-      {
+      if(temp == ""){
         this.presentAlert()
       }
-      else if(temp !== "")
-      {
-        this.userService.create(this.nickname).subscribe(userId =>{
+      else{
+          this.userService.create(this.nickname).subscribe(userId =>{
           this.userService.setUserId(userId);
           this.userService.storeId();
           this.navController.navigateRoot('/tabs/tab1');

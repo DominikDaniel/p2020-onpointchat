@@ -31,14 +31,11 @@ export class Tab2Page {
 
       this.groups = groups as any;
       this.GroupsService.getMessageCount().subscribe(groups2 => {
-        for(let i = 0; i<this.groups.length; i++)
-        {
-          if(this.groups[i].id == groups2[i].id)
-          {
+        for(let i = 0; i<this.groups.length; i++) {
+          if(this.groups[i].id == groups2[i].id) {
             this.groups[i].msgCount = groups2[i].messages[0].count;
           }
         }
-        console.log(this.groups);
       });
     });
   }

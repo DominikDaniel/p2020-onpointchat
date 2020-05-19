@@ -70,7 +70,7 @@ export class Tab1Page {
   }
 
 
-  loadMessages(){
+  loadMessages() {
     this.group_id = this.groupsService.getGroupId();
     this.getGroupName()
     this.userService.getUserList().subscribe(users => {
@@ -79,17 +79,13 @@ export class Tab1Page {
     var myId = this.userService.getUserId();
     this.messagesService.loadMessages(this.group_id).subscribe(messages => {
       this.messages = messages as any;
-      for(let i = 0; i<this.messages.length;i++)
-      {
-        for(let j = 0; j<this.users.length;j++)
-        {
-          if(this.messages[i].user_id == this.users[j].id)
-          {
+      for(let i = 0; i<this.messages.length;i++) {
+        for(let j = 0; j<this.users.length;j++) {
+          if(this.messages[i].user_id == this.users[j].id) {
             this.messages[i].name = this.users[j].name;
           }
         }
-        if(this.messages[i].user_id == myId)
-        {
+        if(this.messages[i].user_id == myId) {
           this.messages[i].isMyMsg = true;
         }
       }
@@ -118,7 +114,7 @@ export class Tab1Page {
       this.isDisabled = false;
       
       this.messagesService.sendMessage(this.newMessage).subscribe(()=>{
-      this.loadMessages();
+        this.loadMessages();
       });
       this.newMessage = {
         user_id: "",

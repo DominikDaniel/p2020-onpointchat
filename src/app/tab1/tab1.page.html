@@ -10,8 +10,8 @@
           </ion-title>
         </ion-col>
         <ion-col id="logoutBtn">
-          <ion-button (click)="logout()">
-            Odhlásiť
+          <ion-button>
+            <ion-icon name="log-out-outline" (click)="logout()"></ion-icon>
           </ion-button>
         </ion-col>
       </ion-row>
@@ -46,7 +46,7 @@
 <ion-footer>
   <ion-toolbar>
     <div class="messageInput">
-      <ion-input [(ngModel)]="newMessage.message"  placeholder="Enter message" (keyup.enter)="sendMessage()" (ionChange)="checkInput()"></ion-input>
+      <ion-input [(ngModel)]="newMessage.message"  placeholder="Napiste spravu" (keyup.enter)="sendMessage()" (ionChange)="checkInput()"></ion-input>
       <ion-button [disabled]="isDisabled" (click)="sendMessage()">Odoslať</ion-button>
     </div>
   </ion-toolbar>
