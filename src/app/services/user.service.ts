@@ -15,7 +15,7 @@ export class UserService {
     private storage: Storage,
     private navController: NavController) { }
 
-    url = "http://localhost/onpointchat-BE";
+    url = "/onpointchat-BE";
     user_id;
 
   create(nickname) {
